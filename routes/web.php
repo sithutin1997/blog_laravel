@@ -14,11 +14,11 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/articles', 'ArticleController@index');
+Route::get('/', 'ArticleController@index');
+Route::get('/articles', 'ArticleController@index')->name('article');
+Route::get('/articles/detail/{id}', 'ArticleController@detail');
