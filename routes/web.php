@@ -24,4 +24,4 @@ Route::get('/articles', 'ArticleController@index')->name('article');
 Route::get('/articles/detail/{id}', 'ArticleController@detail');
 Route::get('/articles/add','ArticleController@add');
 Route::post('/articles/add','ArticleController@create');
-Route::get('/articels/delete/{id}','ArticleController@delete');
+Route::get('/articles/delete/{id}','ArticleController@delete');
