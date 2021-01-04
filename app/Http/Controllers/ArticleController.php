@@ -33,4 +33,30 @@ class ArticleController extends Controller
             "categories" => $data
         ]);
     }
+
+    public function create()
+    {
+        $validator = validator(request()->all(),[
+            'title'=>'required',
+            'content' => 'required',
+            'category_id' => 'required',
+        ]);
+
+        if($validator->fails())
+        {
+            return back()->withErrors($validator);
+        }
+
+        $article = new Article;
+        $article->title = request()->title;
+        $article->content = request()->content;
+        $article->category_id = request()->category_id;
+        $article->save();
+        return redirect('/articles');
+    }
+
+    public function delete()
+    {
+        
+    }
 }
